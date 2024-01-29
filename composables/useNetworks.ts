@@ -14,6 +14,7 @@ export default () => {
     zkSyncNetworks.push(inMemoryNode);
   } else if (runtimeConfig.public.nodeType === "dockerized") {
     zkSyncNetworks.push(dockerizedNode);
+    dockerizedNode.getTokens = () => Hyperchains[0].tokens;
   } else if (runtimeConfig.public.nodeType === "hyperchain") {
     zkSyncNetworks.push(
       ...(Hyperchains as unknown as Array<{ network: ZkSyncNetwork; tokens: Token[] }>).map((e) => ({
