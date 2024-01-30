@@ -144,8 +144,6 @@ import { useDestinationsStore } from "@/store/destinations";
 import { useOnboardStore } from "@/store/onboard";
 import { useZkSyncProviderStore } from "@/store/zksync/provider";
 import { useZkSyncWalletStore } from "@/store/zksync/wallet";
-import { parseTokenAmount, removeSmallAmount } from "@/utils/formatters";
-import { isOnlyZeroes } from "@/utils/helpers";
 
 const onboardStore = useOnboardStore();
 const walletStore = useZkSyncWalletStore();
@@ -159,12 +157,8 @@ const { ecosystemBannerVisible } = useEcosystemBanner();
 const { loading, reset: resetSingleLoading } = useSingleLoading(computed(() => balanceInProgress.value));
 
 const displayedBalances = computed(() => {
-  return balance.value.filter(({ amount, decimals, price }) => {
-    const decimalAmount = price ? removeSmallAmount(amount, decimals, price) : parseTokenAmount(amount, decimals);
-    if (!isOnlyZeroes(decimalAmount)) {
-      return true;
-    }
-    return false;
+  return balance.value.filter(() => {
+    return true;
   });
 });
 const noBalances = computed(() => !loading.value && !balanceError.value && !displayedBalances.value.length);

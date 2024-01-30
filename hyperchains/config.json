@@ -1,1 +1,46 @@
-[]
+[
+  {
+    "network": {
+      "id": 270,
+      "key": "a",
+      "name": "a",
+      "rpcUrl": "http://127.0.0.1:3050",
+      "l1Network": {
+        "id": 9,
+        "name": "a1",
+        "network": "localhost",
+        "nativeCurrency": {
+          "name": "Ether",
+          "symbol": "ETH",
+          "decimals": 6
+        },
+        "rpcUrls": {
+          "default": {
+            "http": ["http://localhost:8545"]
+          },
+          "public": {
+            "http": ["http://localhost:8545"]
+          }
+        }
+      }
+    },
+    "tokens": [
+      {
+        "address": "0xC1dCb8e845F9B5D444aa3dE61367B6D8B7e332b1",
+        "l1Address": "0x406A7bC5DEc116EAB34Bae3712CA95ac8cbbF9D6",
+        "symbol": "USDT",
+        "decimals": 6,
+        "iconUrl": "/img/usdt.svg",
+        "enabledForFees": true
+      },
+      {
+        "address": "0x000000000000000000000000000000000000800A",
+        "l1Address": "0x0000000000000000000000000000000000000000",
+        "symbol": "ETH",
+        "name": "Ether",
+        "decimals": 18,
+        "iconUrl": "/img/eth.svg"
+      }
+    ]
+  }
+]
